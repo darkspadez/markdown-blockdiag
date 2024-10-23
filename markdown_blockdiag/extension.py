@@ -13,6 +13,7 @@ class BlockdiagExtension(Extension):
         super(BlockdiagExtension, self).__init__(**kwargs)
 
     def extendMarkdown(self, md):
+        md.registerExtension(self)
         md.parser.blockprocessors.register(
             BlockdiagProcessor(md.parser, self), 'blockdiag', 90
         )
